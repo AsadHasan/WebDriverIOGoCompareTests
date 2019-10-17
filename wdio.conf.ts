@@ -53,14 +53,13 @@ const config = {
       // 5 instances get started at a time.
       //   maxInstances: 5,
       //
-      browserName: "chrome",
+      browserName: "chrome"
       // If outputDir is provided WebdriverIO can capture driver session logs
       // it is possible to configure which logTypes to include/exclude.
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
       // excludeDriverLogs: ['bugreport', 'server'],
     },
-    { browserName: "internet explorer" },
-    { browserName: "firefox" },
+    { browserName: "firefox" }
   ],
   //
   // ===================
@@ -109,7 +108,19 @@ const config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["chromedriver", "iedriver", "firefox-profile"],
+  services: ["selenium-standalone"],
+  seleniumInstallArgs: {
+    drivers: {
+      chrome: { version: "77.0.3865.40" },
+      firefox: { version: "0.25.0" }
+    }
+  },
+  seleniumArgs: {
+    drivers: {
+      chrome: { version: "77.0.3865.40" },
+      firefox: { version: "0.25.0" }
+    }
+  },
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -133,7 +144,7 @@ const config = {
   mochaOpts: {
     ui: "bdd",
     timeout: 60000,
-    require: ["tsconfig-paths/register"],
+    require: ["tsconfig-paths/register"]
   },
   //
   // =====
@@ -170,7 +181,7 @@ const config = {
 
   before() {
     require("ts-node").register({ files: true });
-  },
+  }
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName hook command name
