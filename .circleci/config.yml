@@ -19,12 +19,12 @@ jobs:
     steps:
       - checkout
       - run:
-        name: update-npm
-        command: "sudo npm install -g npm@latest"
+          name: update-npm
+          command: "sudo npm install -g npm@latest"
 
       - run:
-        name: globally-install-typescript
-        command: "sudo npm install -g typescript"
+          name: globally-install-typescript
+          command: "sudo npm install -g typescript"
 
       # Download and cache dependencies
       - restore_cache:
