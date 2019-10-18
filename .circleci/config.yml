@@ -22,7 +22,7 @@ jobs:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
 
-        - run:
+       - run:
           name: globally-install-typescript
           command: 'sudo npm install -g typescript'
 
