@@ -1,8 +1,7 @@
 {
-  "name": "WebdriverioGoCompare",
+  "name": "webdriverio-gocompare",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Automation test of GoCompare website with WebDriverIO, driven with Typescript, Mocha and Chai",
   "scripts": {
     "test": "npx wdio wdio.conf.js"
   },

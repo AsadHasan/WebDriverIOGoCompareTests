@@ -1,14 +1,25 @@
 import { Page } from "./Page";
+import { config } from "wdio.conf";
+import { Element } from "@wdio/sync";
 
 export class Homepage extends Page {
   get hasDraggableSliderWithComparisonProducts(): boolean {
+    var slidableComparisonProducts: Element[] = $$(
+      ".g-prod-list>.is-draggable> * .flickity-slider>a"
+    );
+    var draggerButtons: Element[] = $$(
+      ".g-prod-list > * .flickity-page-dots>li"
+    );
+
     return this.waitUntilCondition(
       () =>
-        $$(".g-prod-list>.is-draggable> * .flickity-slider>a").every((element) =>
-          element.isDisplayed(),
+        slidableComparisonProducts.every(product =>
+          draggerButtons.some(button => {
+            this.clickWhenReady(button);
+            return product.isDisplayed();
+          })
         ),
-      5000,
-      "Expected Draggable slider with comparison products displayed on Homepage after waiting for 5 seconds",
+      `Expected Draggable slider with each comparison product displayed on Homepage after waiting for ${config.waitforTimeout}ms`
     );
   }
 }

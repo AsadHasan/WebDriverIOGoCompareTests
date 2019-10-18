@@ -1,4 +1,5 @@
 import { config } from "../../../wdio.conf";
+import { Element } from "@wdio/sync";
 
 export class Page {
   public open(): void {
@@ -7,9 +8,21 @@ export class Page {
 
   protected waitUntilCondition(
     condition: () => boolean,
-    waitTime: number,
-    timeOutErrorMessage: string,
+    timeOutErrorMessage: string
   ): boolean {
-    return browser.waitUntil(condition, waitTime, timeOutErrorMessage);
+    return browser.waitUntil(
+      condition,
+      config.waitforTimeout,
+      timeOutErrorMessage
+    );
+  }
+
+  protected clickWhenReady(element: Element): void {
+    this.waitUntilCondition(
+      () => element.isDisplayed(),
+      `Expected element to be displayed after ${config.waitforTimeout}ms`
+    );
+    element.scrollIntoView();
+    element.click();
   }
 }

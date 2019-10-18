@@ -5,6 +5,8 @@ describe("GoCompare homepage", () => {
   it("should contain draggable slider with comparison products", () => {
     const homepage = new Homepage();
     homepage.open();
-    expect(homepage.hasDraggableSliderWithComparisonProducts).to.be.true;
+    var homepageHhasDraggableSliderWithComparisonProducts =
+      homepage.hasDraggableSliderWithComparisonProducts;
+    expect(homepageHhasDraggableSliderWithComparisonProducts).to.be.true;
   });
 });
