@@ -62,7 +62,7 @@ const config = {
     {
       browserName: "firefox",
       "moz:firefoxOptions": {
-        binary: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"
+        binary: "C:\\Program Files\\Mozilla Firefox\\firefox.exe"
       }
     }
   ],
@@ -184,7 +184,7 @@ const config = {
   // before: function (capabilities, specs) {
   // },
 
-  before() {
+  before: function() {
     require("ts-node").register({ files: true });
   }
   /**
@@ -247,6 +247,9 @@ const config = {
    */
   // after: function (result, capabilities, specs) {
   // },
+  // after: function() {
+  //   browser.closeWindow();
+  // }
   /**
    * Gets executed right after terminating the webdriver session.
    * @param {Object} config wdio configuration object
