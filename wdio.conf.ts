@@ -184,7 +184,7 @@ const config = {
   // before: function (capabilities, specs) {
   // },
 
-  before: function() {
+  before() {
     require("ts-node").register({ files: true });
   }
   /**
