@@ -59,7 +59,12 @@ const config = {
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
       // excludeDriverLogs: ['bugreport', 'server'],
     },
-    { browserName: "firefox" }
+    {
+      browserName: "firefox",
+      "moz:firefoxOptions": {
+        binary: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"
+      }
+    }
   ],
   //
   // ===================
